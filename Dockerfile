@@ -2,18 +2,12 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 
-# Instale as dependências do SQLite
-RUN apt-get update && apt-get install -y libsqlite3-dev
-
 WORKDIR /app
-EXPOSE 81
+EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["PostBook.csproj", "."]
-
-RUN dotnet tool install --global dotnet-ef
-# RUN dotnet ef database update
 
 RUN dotnet restore "./PostBook.csproj"
 COPY . .
