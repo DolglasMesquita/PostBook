@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["PostBook.csproj", "."]
 
-RUN dotnet tool install dotnet-ef
+RUN dotnet tool install --global dotnet-ef
 RUN dotnet ef database update
 
 RUN dotnet restore "./PostBook.csproj"
