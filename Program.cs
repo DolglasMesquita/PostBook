@@ -7,6 +7,7 @@ using PostBook.Domain.Interfaces.Service;
 using PostBook.Infraestructure.Data;
 using PostBook.Repositories;
 using PostBook.Services;
+using System.Net;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -53,6 +54,11 @@ builder.Services.AddAuthorization(options =>
     options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
         .RequireAuthenticatedUser()
         .Build();
+});
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Listen(IPAddress.Any, 80);
 });
 
 
