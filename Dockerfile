@@ -13,7 +13,6 @@ WORKDIR /src
 COPY ["PostBook.csproj", "."]
 
 RUN dotnet tool install --global dotnet-ef --version 6.0.24
-RUN dotnet tool install --global dotnet-sonarscanner --version 6.0.24
 
 RUN dotnet restore "./PostBook.csproj"
 COPY . .
