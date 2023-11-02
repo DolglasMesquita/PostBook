@@ -7,6 +7,6 @@ services:
     ports:
       - "5000:80"
     volumes:
-      - db-data:/app/Data
+      - db-data:/app
 volumes:
   db-data:
