@@ -76,7 +76,7 @@ namespace PostBook.Controllers
 
                 LoggedUserDTO result = await _userService.AuthenticateUser(login);
 
-                if (result == null) return BadRequest("Incorrect password");
+                if (result == null) return Unauthorized("Incorrect password");
                 
 
                 return Ok(result);
