@@ -100,6 +100,7 @@ public class UserService : IUserService
 
             LoggedUserDTO loggedUser = new()
             {
+                Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
                 Token = GenerateToken(user)
