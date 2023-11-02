@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<PostBookContext>(options => options.UseSqlite("Data Source=PostBook.db"));
+builder.Services.AddDbContext<PostBookContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
