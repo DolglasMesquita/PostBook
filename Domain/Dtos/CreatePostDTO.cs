@@ -1,6 +1,10 @@
-﻿namespace PostBook.Domain.Dtos;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PostBook.Domain.Dtos;
 
 public class CreatePostDTO
 {
-        public string Content { get; set; }
+    [Required]
+    [MaxLength(255)]
+    public string Content { get; set; }
 }
