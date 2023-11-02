@@ -13,7 +13,7 @@ WORKDIR /src
 COPY ["PostBook.csproj", "."]
 
 RUN dotnet tool install --global dotnet-ef
-RUN dotnet ef database update
+# RUN dotnet ef database update
 
 RUN dotnet restore "./PostBook.csproj"
 COPY . .
