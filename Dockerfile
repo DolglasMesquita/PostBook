@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 
 # Instale as dependências do SQLite
-RUN apt-get -y --no-install-recommends install libsqlite3-dev libsqlite3-mod-spatialite
+RUN apt-get update && \ apt-get -y --no-install-recommends install default-jre libsqlite3-dev libsqlite3-mod-spatialite && \
 
 WORKDIR /app
 EXPOSE 80
