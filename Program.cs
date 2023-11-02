@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<PostBookContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<PostBookContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("Data Source=PostBook.db")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
@@ -55,12 +55,6 @@ builder.Services.AddAuthorization(options =>
         .RequireAuthenticatedUser()
         .Build();
 });
-
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.Listen(IPAddress.Any, 80);
-});
-
 
 var app = builder.Build();
 
